@@ -1,6 +1,5 @@
 const express = require('express');
 const morgan = require('morgan');
-
 const app = express();
 
 app.listen(3000);
@@ -8,28 +7,29 @@ app.listen(3000);
 app.set('view engine', 'ejs');
 
 app.use(express.static('public'));
-
 app.use(morgan('dev'));
 
 app.get('/', (request, response) => {
     const blogs = [
-        {title: 'THIS IS  A TITLE', snnipet: 'THIS IS A SNIPPETTTT'},
-        {title: 'THIS IS  A TITLE', snnipet: 'THIS IS A SNIPPETTTT'},
-        {title: 'THIS IS  A TITLE', snnipet: 'THIS IS A SNIPPETTTT'},
-        {title: 'THIS IS  A TITLE', snnipet: 'THIS IS A SNIPPETTTT'},
-        {title: 'THIS IS  A TITLE', snnipet: 'THIS IS A SNIPPETTTT'},
+        {title: 'HELL WORLD', snippet: 'UNIVERSE'},
+        {title: 'HELL WORLD', snippet: 'UNIVERSE'},
+        {title: 'HELL WORLD', snippet: 'UNIVERSE'},
+        {title: 'HELL WORLD', snippet: 'UNIVERSE'},
+        {title: 'HELL WORLD', snippet: 'UNIVERSE'},
+        {title: 'HELL WORLD', snippet: 'UNIVERSE'},
+        {title: 'HELL WORLD', snippet: 'UNIVERSE'},
     ];
     response.render('index', { title: 'HOMEPAGE', blogs});
 });
 
 app.get('/about', (request, response) => {
-    response.render('about', { title: 'ABOUT PAGE'});
+    response.render('about', {title: 'ABOUT'});
 });
 
 app.get('/create', (request, response) => {
-    response.render('create', { title: 'CREATE new blogs'});
+    response.render('create', { title: 'CREATE NEW BLOG'});
 });
 
 app.use((request, response) => {
-    response.status(404).render('404', { title: 'ERROR Page'});
+    response.status(404).render('404', { title: 'ERROR' });
 });
